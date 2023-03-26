@@ -33,14 +33,14 @@ var actualDay = dayjs().calendar(null, {
   [today]
 })
 */
-
+/*
 $(document).ready();
 ($document).ready(function(){
     $('#btn1').click(function(){
       alert('Button Clicked!');
     });
 });
-
+*/
 
 
 const localeSettings = {};
@@ -52,18 +52,6 @@ console.log(actualHour)
 var segmentHour = (this.id);
 console.log(segmentHour)
 
-
-
-function hourlyStatus() {
-  $('.row time-block').each(function() {
-    var segmentHour = parseInt(this.id);
-   /* $(this).toggleClass('past', segmentHour < actualHour);
-    $(this).toggleClass('present', segmentHour === actualHour);
-    $(this).toggleClass('future', segmentHour > actualHour); */
-    console.log(segmentHour);
-  });
-}
-
 function actualTime() {
   var dateActual = $('#actual-date');
   var timeActual = $('#actual-time');
@@ -73,6 +61,35 @@ function actualTime() {
   timeActual.text(currentTime);
 }
 setInterval(actualTime, 1000);
+
+function hourlyStatus() {
+  $('.time-block').each(function() {
+    const segmentHour = parseInt(this.id);
+    $(this).toggleClass('past', segmentHour < actualHour);
+    $(this).toggleClass('present', segmentHour == actualHour);
+    $(this).toggleClass('future', segmentHour > actualHour);
+    console.log(segmentHour);
+  });
+}
+hourlyStatus()
+
+function actionRecord() {
+  $('.saveBtn').on('click', function() {
+    var identifier = $(this).parent().attr('id');
+    var data = $(this).siblings('.description').val();
+    localStorage.setItem(identifier, data);
+});
+}
+actionRecord()
+
+$('.time-block').each(function() {
+var identifier = $(this).attr('id');
+var data = localStorage.getItem(identifier);
+$(this).children('.description').val(data);
+});
+
+
+
 
 /*
 function liveTime() {
