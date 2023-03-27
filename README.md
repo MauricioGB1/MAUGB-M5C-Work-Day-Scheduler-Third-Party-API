@@ -1,99 +1,94 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Work Day Scheduler Third Party API
 
-## Your Task
+## Description
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+This application was created using HTML, JavaScript, jQuery, CSS and [Day.js](https://day.js.org/en/) library.
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+Workday scheduler application is created as front-end application with local storage. 
+This application provides and very good tool for daily planning of activities, especially when the user has a busy schedule. Planned activities can be recorded by single saving button and the information remains until is fully cleared by the clear scheduler button.
 
-## User Story
+Day time hours are changing color for visual management of the activities over a designated block of time.
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+Past sections are marked in grey color, actual hour activities are colored in red color and for future activities we used the green color.
 
-## Acceptance Criteria
+This application I learned how to use an external API to obtain the date and time accurately, simplify the JavaScript coding using jQuery.
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
 
-The following animation demonstrates the application functionality:
+## Table of Contents (Optional)
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
 
-## Grading Requirements
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+## Installation
 
-This Challenge is graded based on the following criteria:
+The actual application does not require to install on local drive. This can be used directly from the browser. 
+Links to Day.Js and jQuery are already included on the HTML section,; both will run by the browser.
 
-### Technical Acceptance Criteria: 40%
+Link to GitHub Depository:
 
-* Satisfies all of the above acceptance criteria plus the following:
+https://github.com/MauricioGB1/MAUGB-M5C-Work-Day-Scheduler-Third-Party-API
 
-  * Uses a date utility library to work with date and time
+Link to the WEB deployed application and ready to run from the browser:
 
-### Deployment: 32%
 
-* Application deployed at live URL
 
-* Application loads with no errors
+## Usage
 
-* Application GitHub URL submitted
+Work Day Scheduler application is very user friendly and intuitive for the user.
+Working Hours are presented on the left side from 9:00 am thru 5:00pm, each hour has a special
+ section to log the activities corresponding to that section.
+On the middle upper section, a current date and time is displayed so user know at any moment the actual time in accurate way.
 
-* GitHub repo contains application code
+The second section is designed for blocks which user can enter the daily activities according to each segment of time.
+after each activity is entered a save button on the left side marked in blue color should be clicked so the data is recorded.
+Even if the browser is reloaded the activities will remain there and saved in the local storage.
 
-### Application Quality: 15%
+If the user needs to clear all the sections from the work day scheduler it is possible
+ using the clear scheduler button located on the top left section in blue color.
+ Once this blue button is activated the data recorded on each of the segments will be deleted from the input section
+ and from the local storage. the browser is reloaded.
 
-* Application user experience is intuitive and easy to navigate
 
-* Application user interface style is clean and polished
+Main Overview Application
 
-* Application resembles the mock-up functionality provided in the Challenge instructions
+![alt text](./Assets/images/main-work-day-scheduler.png)
 
-### Repository Quality: 13%
+Input from user to log each of the activities and appointments thru each day
 
-* Repository has a unique name
+![alt text](./Assets/images/Activities%20-Image%202.png)
 
-* Repository follows best practices for file structure and naming conventions
+Location of button to save the activity for eaxch time segment
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+![alt text](./Assets/images/save%20activity.png)
 
-* Repository contains multiple descriptive commit messages
 
-* Repository contains quality README file with description, screenshot, and link to deployed application
+Special button that allows user to clear the activities from the work day scheduler and the local storage.
 
-## Review
 
-You are required to submit the following for review:
+![alt text](./Assets/images/Clear%20Scheduler.png)
 
-* The URL of the deployed application
 
-* The URL of the GitHub repository, with a unique name and a README describing the project
+## Credits
 
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+Special Thank you to the RICE University Coding team.
+
+Thank you to Traversy Media. Youtube: https://www.youtube.com/@TraversyMedia
+
+## License
+
+This application is running under the MIT license.
+
+
+
+## Features
+
+- jQuery usage of functions
+- Use of APY Day.Js with accurate time and date data
+- Local storage properties
+- Interactive user log data for activities
+- Active time and date updated every second
+
+

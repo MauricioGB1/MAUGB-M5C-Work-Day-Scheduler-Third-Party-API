@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -20,37 +20,21 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
-/*
-var currentDayEl = $('#currentDay');
-var containerEl = $('.container');
-//var actualHour = moment().hour();
 
-//var actualDay = moment().format('dddd, MMMM Do');
-//currentDayEl.text(actualDay);
+var finishRendering = {};
+dayjs.locale(finishRendering); 
 
-var actualDay = dayjs().calendar(null, {
-  [today]
-})
-*/
-/*
-$(document).ready();
-($document).ready(function(){
-    $('#btn1').click(function(){
-      alert('Button Clicked!');
-    });
-});
-*/
+// Option to get current hour from Day.js
 
-
-const localeSettings = {};
-dayjs.locale(localeSettings);
-
+$(function () {
 var actualHour = dayjs().format('H');
 console.log(actualHour)
 
+
 var segmentHour = (this.id);
 console.log(segmentHour)
+
+// Displays actual date and time on the front page, so user get instant and accurate time.
 
 function actualTime() {
   var dateActual = $('#actual-date');
@@ -62,9 +46,11 @@ function actualTime() {
 }
 setInterval(actualTime, 1000);
 
+// Montitors each hour and assign new class to change the color grey(past), red(actual), green (future). 
+
 function hourlyStatus() {
   $('.time-block').each(function() {
-    const segmentHour = parseInt(this.id);
+    var segmentHour = parseInt(this.id);
     $(this).toggleClass('past', segmentHour < actualHour);
     $(this).toggleClass('present', segmentHour == actualHour);
     $(this).toggleClass('future', segmentHour > actualHour);
@@ -72,7 +58,10 @@ function hourlyStatus() {
   });
 }
 hourlyStatus()
+});
 
+
+//Storage tasks from the day scheduler for each time block to the local storage
 function actionRecord() {
   $('.saveBtn').on('click', function() {
     var identifier = $(this).parent().attr('id');
@@ -82,56 +71,33 @@ function actionRecord() {
 }
 actionRecord()
 
+// Assign data from the Local storage for each activity, present it to the user to each time blocker 
+// even if browser is refreshed
+
 $('.time-block').each(function() {
 var identifier = $(this).attr('id');
 var data = localStorage.getItem(identifier);
 $(this).children('.description').val(data);
 });
 
-
-
-
-/*
-function liveTime() {
-  var actualDay = dayjs() {
-  $('#currentDay').text(actualDay.format('dddd, MMMM D YYYY, h:mm:ss a'));
-  setInterval(updateTime,1000);
+function refreshColor() {
+  $('.time-block').each(function() {
+    var segmentHour = parseInt(this.id);
+    if (segmentHour == actualHour) {
+      $(this).removeClass('past future').addClass('present');
+    } 
+    else if (segmentHour < actualHour) {
+      $(this).removeClass('present future').addClass('past');
+    }
+    else { 
+      $(this).removeClass('past present').addClass('future');
+    }
+    })
 }
 
+//clears work day scheduler activities from user view (header) and from the local storage
 
-
-//var actualDay = today.format('[Today is] dddd');
-//$('#currentDay').text(dayWeek);
-
-
-var timeBlockHour = $('col-1 hour')
-var task = $('.description')
-
-
-// Change style on activity present, past and future
-
-function checktimeBlock(timeBlockEventSpace) {
-  var currentTimeBlockHour = moment($(timeBlockHour).text().trim(), 'hA').hour();
-
-$(timeBlockEventSpace).removeClass('past present future');
-
-if (currentTimeBlockHour > currentHour) {
-  $(timeBlockEventSpace).addClass('future');
-
-else if (currentTimeBlockHour == currentHour) {
-  $(timeBlockEventSpece).addClass('present');
-
-else (timeBlockerEventSpace).addClass('past');
-
-
-
- // Save button activity
-
-
- // Delete byutton activity
-
- // Event  listeners
-
-
-  loadTask()
-} */
+$('#btn1').on('click', function(){
+  localStorage.clear()
+  location.reload()
+  });
