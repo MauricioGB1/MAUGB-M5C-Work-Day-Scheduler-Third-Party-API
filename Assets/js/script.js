@@ -28,6 +28,7 @@ dayjs.locale(finishRendering);
 
 $(function () {
 var actualHour = dayjs().format('H');
+//var actualHour
 console.log(actualHour)
 
 
@@ -58,7 +59,7 @@ function hourlyStatus() {
   });
 }
 hourlyStatus()
-});
+
 
 
 //Storage tasks from the day scheduler for each time block to the local storage
@@ -69,7 +70,8 @@ function actionRecord() {
     localStorage.setItem(identifier, data);
 });
 }
-actionRecord()
+actionRecord();
+
 
 // Assign data from the Local storage for each activity, present it to the user to each time blocker 
 // even if browser is refreshed
@@ -80,20 +82,29 @@ var data = localStorage.getItem(identifier);
 $(this).children('.description').val(data);
 });
 
-function refreshColor() {
+
+$(function () {
+  var myHour = dayjs().format('H');
+  // current Hour
+  console.log(myHour)
+
+
+function hourlyUpdate() {
   $('.time-block').each(function() {
     var segmentHour = parseInt(this.id);
-    if (segmentHour == actualHour) {
+    if (segmentHour == myHour) {
       $(this).removeClass('past future').addClass('present');
     } 
-    else if (segmentHour < actualHour) {
+    else if (segmentHour < myHour) {
       $(this).removeClass('present future').addClass('past');
     }
     else { 
       $(this).removeClass('past present').addClass('future');
     }
-    })
-}
+    });
+    }
+hourlyUpdate();
+});
 
 //clears work day scheduler activities from user view (header) and from the local storage
 
@@ -101,3 +112,4 @@ $('#btn1').on('click', function(){
   localStorage.clear()
   location.reload()
   });
+});
