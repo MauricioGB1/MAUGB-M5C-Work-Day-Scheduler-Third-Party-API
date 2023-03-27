@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 textarea {
@@ -12,12 +12,36 @@ textarea {
   padding: 10px;
 }
 
-h1, p {
+/*  Centered Title, Date & Time (Actual) */
+h1 {
   text-align: center;
   font-weight: bold;
+ }
+
+p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
 }
+
+.lead {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
 .description {
   white-space: pre-wrap;
+}
+
+#btn1 {
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: blue;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .time-block {
