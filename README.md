@@ -33,7 +33,7 @@ https://github.com/MauricioGB1/MAUGB-M5C-Work-Day-Scheduler-Third-Party-API
 
 Link to the WEB deployed application and ready to run from the browser:
 
-
+https://mauriciogb1.github.io/MAUGB-M5C-Work-Day-Scheduler-Third-Party-API/
 
 ## Usage
 
